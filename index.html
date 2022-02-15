@@ -5,11 +5,61 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Style -->
+  <link rel="stylesheet" href="css/style.css">
+  <!-- leaflet  -->
+  <link rel="stylesheet" href="css/leaflet.css">
+  <script src="js/leaflet.js"></script>
   <title>Geo Portal</title>
 </head>
 
-<body>
-  <h1>Thematic HERE !</h1>
+<body class="">
+  <div class="container">
+    <header class="block">
+      <h3>
+        THEMATIC HERE (exploring this and that ...)
+      </h3>
+    </header>
+
+    <div id="mapid"></div>
+
+    <div id="search" class="search">
+      <input type="text" name="filter" class="block" placeholder=" Filter by ..... (e.g. xxx)" id="filter">
+      <div class="collection-container">
+        <p class="collection"></p>
+      </div>
+    </div>
+
+    <div id="indecator1" class="indecator block">
+      <h2> 3% </h2> <span> </span>
+      <p> <br> XXX </p>
+    </div>
+    <div id="indecator2" class="indecator block">
+      <h2> 0% </h2> <span> </span>
+      <p> <br> YYY </p>
+    </div>
+    <div id="chart-container" class="block">
+      <div class="chartjs-size-monitor">
+        <div class="chartjs-size-monitor-expand">
+          <div class=""></div>
+        </div>
+        <div class="chartjs-size-monitor-shrink">
+          <div class=""></div>
+        </div>
+      </div>
+      <canvas id="mychart" style="display: block; height: 476px; width: 786px;" class="chartjs-render-monitor"
+        width="628" height="380"></canvas>
+    </div>
+    <div id="list-container" class="block">
+      <h5 id="list-title">List of 10 ... ...</h5>
+    </div>
+
+    <footer class="block"></footer>
+  </div>
+  <script src="js/script.js"></script>
+  <script></script>
+
+
 </body>
 
 </html>
