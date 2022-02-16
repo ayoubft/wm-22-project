@@ -14,3 +14,5 @@ L.tileLayer("https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png", {
   subdomains: "abcd",
   maxZoom: 19,
 }).addTo(map);
+
+geolayer = L.geoJson(v2018).addTo(map);
