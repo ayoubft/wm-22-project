@@ -191,8 +191,20 @@ info.update = function (props) {
       : "Survoler une commune!");
 };
 
-function show_aero() {
-  geojson = L.geoJson(aeroports).addTo(map);
+function show_statpluv() {
+  geojson = L.geoJSON(statpluv, {
+    onEachFeature: function (feature, layer) {
+      layer.bindPopup(
+        "<h2><u>" +
+          feature.properties.Nom +
+          "</h2> </u></font><h3>Bassin : " +
+          feature.properties.Bassin +
+          "</h3><p>Type : " +
+          feature.properties.Type +
+          "</p>"
+      );
+    },
+  }).addTo(map);
 }
 
 ///////////////////////////////////////////////////////////////////////////////
