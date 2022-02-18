@@ -2,66 +2,112 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <!-- Style -->
-  <link rel="stylesheet" href="css/style.css">
-  <!-- leaflet  -->
-  <link rel="stylesheet" href="css/leaflet.css">
-  <script src="js/leaflet.js"></script>
-  <title>Geo Portal</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css" />
+    <!-- leaflet  -->
+    <link rel="stylesheet" href="css/leaflet.css">
+    <script src="js/leaflet.js"></script>
+    <!-- Load Esri Leaflet from CDN -->
+    <script src="https://unpkg.com/esri-leaflet@3.0.4/dist/esri-leaflet.js"></script>
+
+    <!-- Load Esri Leaflet Vector from CDN -->
+    <script src="https://unpkg.com/esri-leaflet-vector@3.1.1/dist/esri-leaflet-vector.js"></script>
+
+    <title>Précipitation Maroc</title>
+    <!-- FAVICO -->
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+    <link rel="manifest" href="favicon/site.webmanifest">
+
 </head>
 
-<body class="">
-  <div class="container">
-    <header class="block">
-      <h3>
-        THEMATIC HERE (exploring this and that ...)
-      </h3>
-    </header>
+<body>
 
-    <div id="mapid"></div>
+    <div class="container-fluid">
+        <div class="mapbox">
+            <div class="row-fluid some" id="map"></div>
 
-    <div id="search" class="search">
-      <input type="text" name="filter" class="block" placeholder=" Filter by ..... (e.g. xxx)" id="filter">
-      <div class="collection-container">
-        <p class="collection"></p>
-      </div>
-    </div>
+            <div class="row-fluid overlay">
 
-    <div id="indecator1" class="indecator block">
-      <h2> 3% </h2> <span> </span>
-      <p> <br> XXX </p>
-    </div>
-    <div id="indecator2" class="indecator block">
-      <h2> 0% </h2> <span> </span>
-      <p> <br> YYY </p>
-    </div>
-    <div id="chart-container" class="block">
-      <div class="chartjs-size-monitor">
-        <div class="chartjs-size-monitor-expand">
-          <div class=""></div>
+                <div class="box">
+                    <br><br>
+                    <button class="BTN" id="btncom" onclick='hideDiv("divStations")'><b>Stations
+                            météorologiques</b></button>
+                    <div id="divStations" class="DIV" style="display: none;">
+                        <button id="aeroports" onclick="show_aero()">AFFICHER LES AEROPORTS</button>
+                    </div>
+                    <br>
+
+                    <button class="BTN" onclick='hideDiv("divcom")'><b>Précipitation par commune</b></button>
+                    <div id="divcom" class="DIV" style="display: none;">
+                        <div class="custom-select">
+                            <select id="slctmonth_com">
+                                <option value="____">Choose month of 2018:</option>
+                                <option value="prec-1-18">January 2018</option>
+                                <option value="prec-2-18">February 2018</option>
+                                <option value="prec-3-18">March 2018</option>
+                                <option value="prec-4-18">April 2018</option>
+                                <option value="prec-5-18">May 2018</option>
+                                <option value="prec-6-18">June 2018</option>
+                                <option value="prec-7-18">July 2018</option>
+                                <option value="prec-8-18">August 2018</option>
+                                <option value="prec-9-18">September 2018</option>
+                                <option value="prec-10-18">October 2018</option>
+                                <option value="prec-11-18">November 2018</option>
+                                <option value="prec-12-18">December 2018</option>
+                            </select>
+                        </div>
+                    </div>
+                    <br>
+
+                    <button class="BTN" onclick='hideDiv("divCours")'><b>Cours d'eau</b></button>
+                    <div id="divCours" class="DIV" style="display: none;"> Here goes the other things </div>
+                    <br>
+
+                    <button class="BTN" onclick='hideDiv("divRaster")'><b>Rasters</b></button>
+                    <div id="divRaster" class="DIV" style="display: none;"> Here goes the other things </div>
+                    <br>
+
+                    <button class="BTN" onclick='hideDiv("spatialQuery")'><b>Requêtes spatiales</b></button>
+                    <div id="spatialQuery" class="DIV" style="display: none;">
+                        <button onclick='show_panel()'>SPATIAL QUERY</button>
+                    </div>
+                    <br>
+
+                    <button class="resetBTN" onclick='reset_all()'><b>reset</b></button>
+                    <br>
+                </div>
+                <div class="box-2 header">🌧️ Précipitations au Maroc</div>
+            </div>
+
         </div>
-        <div class="chartjs-size-monitor-shrink">
-          <div class=""></div>
-        </div>
-      </div>
-      <canvas id="mychart" style="display: block; height: 476px; width: 786px;" class="chartjs-render-monitor"
-        width="628" height="380"></canvas>
     </div>
-    <div id="list-container" class="block">
-      <h5 id="list-title">List of 10 ... ...</h5>
     </div>
 
-    <footer class="block"></footer>
-  </div>
-  <script src="js/vectorise.js"></script>
-  <script src="js/script.js"></script>
+    <div id="panel" class="leaflet-bar" style="display: none;">
+        Communes
+        <select name="relation" id="relationSelect">
+            <option value="within">Within<options>
+            <option value="contains">Contains<options>
+            <option value="intersects">Intersects<options>
+            <option value="overlaps">Overlaps<options>
+        </select>
+        <select name="geometry" id="geometrySelect">
+            <option value="bounds">Bounds<options>
+            <option value="point">Point<options>
+            <option value="line">Line<options>
+            <option value="polygon">Polygon<options>
+        </select>
+        <button id="executeQuery">Run Query</button>
 
-  <script></script>
-
+    </div>
 
 </body>
+<script src="data/p2018-12.js"></script>
+<script src="data/communes.js"></script>
+<script src="js/script.js"></script>
 
 </html>

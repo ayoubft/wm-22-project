@@ -2910,7 +2910,7 @@
       options: {
         position: "bottomright",
         prefix:
-          '<a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a>',
+          '<a class="attribution" href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a>',
       },
       initialize: function (t) {
         p(this, t), (this._attributions = {});
