@@ -1,5 +1,5 @@
 // the map
-var map = L.map("map").setView([32.4937, -6.283], 5);
+var map = L.map("map").setView([30.4937, -6.283], 6);
 
 // Google Earth Hybrid basemap
 // L.tileLayer("http://mt0.google.com/vt/lyrs=y&hl=en&x={x}&y={y}&z={z}&s=Ga", {
@@ -52,6 +52,8 @@ function show_panel() {
 
 const elements = document.getElementsByClassName("info");
 const divs = document.getElementsByClassName("DIV");
+const btns = document.getElementsByClassName("BTN");
+
 // reset function #to
 function reset_all() {
   map.eachLayer(function (layer) {
@@ -62,7 +64,13 @@ function reset_all() {
   for (var i = 0; i < divs.length; i++) {
     divs[i].style.display = "none";
   }
+
   panel.style.display = "none";
+
+  for (let i = 0; i < btns.length; i++) {
+    btns[i].style.backgroundColor = "#d4d4d4";
+    btns[i].style.color = "black";
+  }
 
   addBM();
 }
