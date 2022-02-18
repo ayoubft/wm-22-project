@@ -24,6 +24,7 @@ function addBM() {
       id: "osm-bright",
     }
   ).addTo(map);
+  map.setView([30.4937, -6.283], 6);
 }
 
 // first init
