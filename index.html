@@ -33,15 +33,16 @@
             <div class="row-fluid overlay">
 
                 <div class="box">
-                    <br><br>
-                    <button class="BTN" id="btncom" onclick='hideDiv("divStations")'><b>Stations
+                    <br><br><br>
+                    <button class="BTN" id="btnstatp" onclick='hideDiv("divStations", "btnstatp")'><b>Stations
                             météorologiques</b></button>
                     <div id="divStations" class="DIV" style="display: none;">
                         <button id="aeroports" onclick="show_aero()">AFFICHER LES AEROPORTS</button>
                     </div>
                     <br>
 
-                    <button class="BTN" onclick='hideDiv("divcom")'><b>Précipitation par commune</b></button>
+                    <button class="BTN" id="btncom" onclick='hideDiv("divcom", "btncom")'><b>Précipitation par
+                            commune</b></button>
                     <div id="divcom" class="DIV" style="display: none;">
                         <div class="custom-select">
                             <select id="slctmonth_com">
@@ -63,15 +64,17 @@
                     </div>
                     <br>
 
-                    <button class="BTN" onclick='hideDiv("divCours")'><b>Cours d'eau</b></button>
+                    <button class="BTN" id="btncour" onclick='hideDiv("divCours", "btncour")'><b>Cours
+                            d'eau</b></button>
                     <div id="divCours" class="DIV" style="display: none;"> Here goes the other things </div>
                     <br>
 
-                    <button class="BTN" onclick='hideDiv("divRaster")'><b>Rasters</b></button>
+                    <button class="BTN" id="btnras" onclick='hideDiv("divRaster", "btnras")'><b>Rasters</b></button>
                     <div id="divRaster" class="DIV" style="display: none;"> Here goes the other things </div>
                     <br>
 
-                    <button class="BTN" onclick='hideDiv("spatialQuery")'><b>Requêtes spatiales</b></button>
+                    <button class="BTN" id="btnq" onclick='hideDiv("spatialQuery", "btnq")'><b>Requêtes
+                            spatiales</b></button>
                     <div id="spatialQuery" class="DIV" style="display: none;">
                         <button onclick='show_panel()'>SPATIAL QUERY</button>
                     </div>

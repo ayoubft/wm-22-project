@@ -30,12 +30,18 @@ function addBM() {
 addBM();
 
 // toggle function => for the menu like
-function hideDiv(E) {
-  var x = document.getElementById(E);
+function hideDiv(e1, e2 = "") {
+  var x = document.getElementById(e1);
+  var y = document.getElementById(e2);
+
   if (x.style.display === "none") {
     x.style.display = "block";
+    y.style.backgroundColor = "black";
+    y.style.color = "white";
   } else {
     x.style.display = "none";
+    y.style.backgroundColor = "#d4d4d4";
+    y.style.color = "black";
   }
 }
 
