@@ -63,6 +63,8 @@ function hide_other_divs(currDiv) {
       divs[i].style.display = "none";
     }
   }
+
+  while (elements.length > 0) elements[0].remove();
 }
 
 // reset function #to
@@ -74,6 +76,7 @@ function reset_all() {
   });
 
   while (elements.length > 0) elements[0].remove();
+
   for (var i = 0; i < divs.length; i++) {
     divs[i].style.display = "none";
   }
