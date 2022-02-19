@@ -79,6 +79,11 @@ body {
   /* color: white; */
 }
 
+.BTN:hover {
+  background-color: #0e80cc; /* Green */
+  color: white;
+}
+
 .resetBTN {
   color: white;
   background-color: rgb(76, 76, 83);
