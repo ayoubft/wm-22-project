@@ -34,9 +34,10 @@
 
                 <div class="box">
                     <br><br><br>
-                    <button class="BTN" id="btnstatp" onclick='hideDiv("divStations", "btnstatp")'><b>Stations
+                    <button class="BTN" id="btnstatp"
+                        onclick='hideDiv("divStations");hide_other_divs("divStations");'><b>Stations
                             météorologiques</b></button>
-                    <div id="divStations" class="DIV" style="display: none;">
+                    <div id="divStations" class="DIV" style="display: none;" onclick="">
                         <p style="font-size: 14px;">Une <b>station météorologique</b>, parfois désignée par synecdoque
                             <b>abri météorologique</b>, est un ensemble de capteurs qui enregistrent et fournissent des
                             mesures physiques et des paramètres météorologiques liés aux variations du climat, ces
@@ -46,13 +47,15 @@
                             de rosée, la pluviométrie, la hauteur et le type des nuages, le type et l'intensité des
                             précipitations ainsi que la visibilité. Les stations peuvent comporter des capteurs pour
                             toutes ou une partie seulement de ces informations, selon leur type : agro-météorologique,
-                            d’aéroport, météoroutière, climatologique, etc. </p>
+                            d’aéroport, météoroutière, climatologique, etc.
+                        </p>
                         <button id="aeroports" onclick="show_statpluv()">AFFICHER LES STATIONS PLUVIÉOMÉTRIQUE</button>
                         <h2>Cliquer sur chaque station pour plus d'informations.</h2>
                     </div>
                     <br>
 
-                    <button class="BTN" id="btncom" onclick='hideDiv("divcom", "btncom")'><b>Précipitation par
+                    <button class="BTN" id="btncom"
+                        onclick='hideDiv("divcom");hide_other_divs("divcom");'><b>Précipitation par
                             commune</b></button>
                     <div id="divcom" class="DIV" style="display: none;">
                         <div class="custom-select">
@@ -75,16 +78,18 @@
                     </div>
                     <br>
 
-                    <button class="BTN" id="btncour" onclick='hideDiv("divCours", "btncour")'><b>Cours
+                    <button class="BTN" id="btncour" onclick='hideDiv("divCours");hide_other_divs("divCours");'><b>Cours
                             d'eau</b></button>
                     <div id="divCours" class="DIV" style="display: none;"> Here goes the other things </div>
                     <br>
 
-                    <button class="BTN" id="btnras" onclick='hideDiv("divRaster", "btnras")'><b>Rasters</b></button>
+                    <button class="BTN" id="btnras"
+                        onclick='hideDiv("divRaster");hide_other_divs("divRaster");'><b>Rasters</b></button>
                     <div id="divRaster" class="DIV" style="display: none;"> Here goes the other things </div>
                     <br>
 
-                    <button class="BTN" id="btnq" onclick='hideDiv("spatialQuery", "btnq")'><b>Requêtes
+                    <button class="BTN" id="btnq"
+                        onclick='hideDiv("spatialQuery");hide_other_divs("spatialQuery");'><b>Requêtes
                             spatiales</b></button>
                     <div id="spatialQuery" class="DIV" style="display: none;">
                         <button onclick='show_panel()'>SPATIAL QUERY</button>

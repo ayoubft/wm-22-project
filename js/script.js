@@ -31,18 +31,13 @@ function addBM() {
 addBM();
 
 // toggle function => for the menu like
-function hideDiv(e1, e2 = "") {
+function hideDiv(e1) {
   var x = document.getElementById(e1);
-  var y = document.getElementById(e2);
 
   if (x.style.display === "none") {
     x.style.display = "block";
-    y.style.backgroundColor = "black";
-    y.style.color = "white";
   } else {
     x.style.display = "none";
-    y.style.backgroundColor = "#d4d4d4";
-    y.style.color = "black";
   }
 }
 
@@ -54,6 +49,15 @@ function show_panel() {
 const elements = document.getElementsByClassName("info");
 const divs = document.getElementsByClassName("DIV");
 const btns = document.getElementsByClassName("BTN");
+
+// toggle others
+function hide_other_divs(currDiv) {
+  for (let i = 0; i < divs.length; i++) {
+    if (divs[i].id != currDiv) {
+      divs[i].style.display = "none";
+    }
+  }
+}
 
 // reset function #to
 function reset_all() {
