@@ -35,9 +35,10 @@
                 <div class="box">
                     <br><br><br>
                     <button class="BTN" id="btnstatp"
-                        onclick='hideDiv("divStations");hide_other_divs("divStations");'><b>🗼 Stations
+                        onclick='hideDiv("divStations");hide_other_divs("divStations");'><b>🗼&emsp;Stations
                             météorologiques</b></button>
                     <div id="divStations" class="DIV" style="display: none;" onclick="">
+                        <hr>
                         <p style="font-size: 14px;">Une <b>station météorologique</b>, parfois désignée par synecdoque
                             <b>abri météorologique</b>, est un ensemble de capteurs qui enregistrent et fournissent des
                             mesures physiques et des paramètres météorologiques liés aux variations du climat, ces
@@ -55,9 +56,11 @@
                     </div>
                     <br>
 
-                    <button class="BTN" id="btncom" onclick='hideDiv("divcom");hide_other_divs("divcom");'><b>🌧️
-                            Précipitation par commune</b></button>
+                    <button class="BTN" id="btncom"
+                        onclick='hideDiv("divcom");hide_other_divs("divcom");'><b>🌧️&emsp;Précipitation par
+                            commune</b></button>
                     <div id="divcom" class="DIV" style="display: none;">
+                        <hr>
                         <div class="custom-select">
                             <select id="slctmonth_com">
                                 <option value="____">Chisir un mois:</option>
@@ -78,20 +81,27 @@
                     </div>
                     <br>
 
-                    <button class="BTN" id="btncour" onclick='hideDiv("divCours");hide_other_divs("divCours");'><b>🌊
-                            Cours d'eau</b></button>
-                    <div id="divCours" class="DIV" style="display: none;"> Here goes the other things </div>
+                    <button class="BTN" id="btncour"
+                        onclick='hideDiv("divCours");hide_other_divs("divCours");'><b>🌊&emsp;Cours d'eau</b></button>
+                    <div id="divCours" class="DIV" style="display: none;">
+                        <hr>
+                        Here goes the other things
+                    </div>
                     <br>
 
-                    <button class="BTN" id="btnras" onclick='hideDiv("divRaster");hide_other_divs("divRaster");'><b>🏁
-                            Rasters</b></button>
-                    <div id="divRaster" class="DIV" style="display: none;"> Here goes the other things </div>
+                    <button class="BTN" id="btnras"
+                        onclick='hideDiv("divRaster");hide_other_divs("divRaster");'><b>🏁&emsp;Rasters</b></button>
+                    <div id="divRaster" class="DIV" style="display: none;">
+                        <hr>
+                        Here goes the other things
+                    </div>
                     <br>
 
                     <button class="BTN" id="btnq"
-                        onclick='hideDiv("spatialQuery");hide_other_divs("spatialQuery");'><b>🔎 Requêtes
+                        onclick='hideDiv("spatialQuery");hide_other_divs("spatialQuery");'><b>🔎&emsp;Requêtes
                             spatiales</b></button>
                     <div id="spatialQuery" class="DIV" style="display: none;">
+                        <hr>
                         <button onclick='show_panel()'>SPATIAL QUERY</button>
                     </div>
                     <br>
