@@ -52,9 +52,12 @@ const btns = document.getElementsByClassName("BTN");
 
 // toggle others
 function hide_other_divs(currDiv) {
+  reset_all();
   for (let i = 0; i < divs.length; i++) {
     if (divs[i].id != currDiv) {
       divs[i].style.display = "none";
+    } else {
+      divs[i].style.display = "block";
     }
   }
 }
