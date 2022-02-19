@@ -72,11 +72,6 @@ function reset_all() {
 
   panel.style.display = "none";
 
-  for (let i = 0; i < btns.length; i++) {
-    btns[i].style.backgroundColor = "#d4d4d4";
-    btns[i].style.color = "black";
-  }
-
   addBM();
 }
 
