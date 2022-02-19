@@ -14,16 +14,15 @@ var map = L.map("map").setView([30.4937, -6.283], 6);
 // }).addTo(map);
 
 // add Positron basemap
+const urlPositron =
+  "https://maps.geoapify.com/v1/tile/positron/{z}/{x}/{y}.png?apiKey=b463cc5c1e7a4046af3cf015984e91fa";
 function addBM() {
-  L.tileLayer(
-    "https://maps.geoapify.com/v1/tile/positron/{z}/{x}/{y}.png?apiKey=b463cc5c1e7a4046af3cf015984e91fa",
-    {
-      attribution:
-        'Powered by <a class="attribution" href="https://www.geoapify.com/" target="_blank">Geoapify</a> | <a class="attribution" href="https://openmaptiles.org/" target="_blank">© OpenMapTiles</a> <a class="attribution" href="https://www.openstreetmap.org/copyright" target="_blank">© OpenStreetMap</a> contributors',
-      maxZoom: 20,
-      id: "osm-bright",
-    }
-  ).addTo(map);
+  L.tileLayer(urlPositron, {
+    attribution:
+      'Powered by <a class="attribution" href="https://www.geoapify.com/" target="_blank">Geoapify</a> | <a class="attribution" href="https://openmaptiles.org/" target="_blank">© OpenMapTiles</a> <a class="attribution" href="https://www.openstreetmap.org/copyright" target="_blank">© OpenStreetMap</a> contributors',
+    maxZoom: 20,
+    id: "osm-bright",
+  }).addTo(map);
   map.setView([30.4937, -6.283], 6);
 }
 
@@ -65,7 +64,9 @@ function hide_other_divs(currDiv) {
 // reset function #to
 function reset_all() {
   map.eachLayer(function (layer) {
-    map.removeLayer(layer);
+    if (layer._url != urlPositron) {
+      map.removeLayer(layer);
+    }
   });
 
   while (elements.length > 0) elements[0].remove();
@@ -74,8 +75,6 @@ function reset_all() {
   }
 
   panel.style.display = "none";
-
-  addBM();
 }
 
 // get the value of the dropdown select for communes
