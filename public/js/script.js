@@ -40,9 +40,9 @@ function hideDiv(e1) {
   }
 }
 
-const panel = document.getElementById("panel");
+// const panel = document.getElementById("panel");
 function show_panel() {
-  panel.style.display = "block";
+  // panel.style.display = "block";
 }
 
 const elements = document.getElementsByClassName("info");
@@ -51,7 +51,7 @@ const btns = document.getElementsByClassName("BTN");
 
 // toggle others
 function hide_other_divs(currDiv) {
-  panel.style.display = "none";
+  // panel.style.display = "none";
   map.eachLayer(function (layer) {
     if (layer._url != urlPositron) {
       map.removeLayer(layer);
@@ -81,7 +81,7 @@ function reset_all() {
     divs[i].style.display = "none";
   }
 
-  panel.style.display = "none";
+  // panel.style.display = "none";
 }
 
 // get the value of the dropdown select for communes
@@ -222,107 +222,107 @@ function show_statpluv() {
 ///////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////
 
-var neighborhoods = L.esri
-  .featureLayer({
-    url: "https://www.portlandmaps.com/arcgis/rest/services/Public/Zoning/MapServer/32",
-    style: {
-      color: "#000",
-      weight: 1,
-      opacity: 0.4,
-    },
-  })
-  .addTo(map);
+// var neighborhoods = L.esri
+//   .featureLayer({
+//     url: "https://www.portlandmaps.com/arcgis/rest/services/Public/Zoning/MapServer/32",
+//     style: {
+//       color: "#000",
+//       weight: 1,
+//       opacity: 0.4,
+//     },
+//   })
+//   .addTo(map);
 
-// create a marker object to query against
-var marker = L.marker([45.571034, -122.686386]).addTo(map);
+// // create a marker object to query against
+// var marker = L.marker([45.571034, -122.686386]).addTo(map);
 
-// create a bounds object to query against
-var bounds = L.latLngBounds([
-  [45.494556, -122.691536],
-  [45.5381, -122.608452],
-]);
+// // create a bounds object to query against
+// var bounds = L.latLngBounds([
+//   [45.494556, -122.691536],
+//   [45.5381, -122.608452],
+// ]);
 
-// create a rectangle to visualize the bounds
-L.rectangle(bounds, {
-  color: "blue",
-  weight: 2,
-}).addTo(map);
+// // create a rectangle to visualize the bounds
+// L.rectangle(bounds, {
+//   color: "blue",
+//   weight: 2,
+// }).addTo(map);
 
-// create a line to query against
-var line = L.polyline(
-  [
-    [45.559256, -122.611885],
-    [45.502256, -122.56279],
-    [45.483244, -122.620468],
-  ],
-  {
-    color: "blue",
-    weight: 2,
-  }
-).addTo(map);
+// // create a line to query against
+// var line = L.polyline(
+//   [
+//     [45.559256, -122.611885],
+//     [45.502256, -122.56279],
+//     [45.483244, -122.620468],
+//   ],
+//   {
+//     color: "blue",
+//     weight: 2,
+//   }
+// ).addTo(map);
 
-// create a polygon to query against
-var polygon = L.polygon(
-  [
-    [45.484894, -122.493696],
-    [45.512025, -122.492199],
-    [45.517669, -122.561457],
-    [45.487343, -122.558573],
-  ],
-  {
-    color: "blue",
-    weight: 2,
-  }
-).addTo(map);
+// // create a polygon to query against
+// var polygon = L.polygon(
+//   [
+//     [45.484894, -122.493696],
+//     [45.512025, -122.492199],
+//     [45.517669, -122.561457],
+//     [45.487343, -122.558573],
+//   ],
+//   {
+//     color: "blue",
+//     weight: 2,
+//   }
+// ).addTo(map);
 
-// collect geometries into an object so we can reference them later
-var geometries = {
-  bounds: bounds,
-  line: line,
-  polygon: polygon,
-  point: marker,
-};
+// // collect geometries into an object so we can reference them later
+// var geometries = {
+//   bounds: bounds,
+//   line: line,
+//   polygon: polygon,
+//   point: marker,
+// };
 
-// get references to our <select> elements
-var relationship = document.getElementById("relationSelect");
-var geometry = document.getElementById("geometrySelect");
-var runQueryButton = document.getElementById("executeQuery");
+// // get references to our <select> elements
+// var relationship = document.getElementById("relationSelect");
+// var geometry = document.getElementById("geometrySelect");
+// var runQueryButton = document.getElementById("executeQuery");
 
-var previousIds = [];
+// var previousIds = [];
 
-// reset all features back to their regularly defined styles
-function reset() {
-  for (var i = previousIds.length - 1; i >= 0; i--) {
-    neighborhoods.resetStyle(previousIds[i]);
-  }
-}
-// query the API and highlight features
-function query() {
-  reset();
-  // lookup our input geometry
-  var inputGeometry = geometries[geometry.value];
+// // reset all features back to their regularly defined styles
+// function reset() {
+//   for (var i = previousIds.length - 1; i >= 0; i--) {
+//     neighborhoods.resetStyle(previousIds[i]);
+//   }
+// }
+// // query the API and highlight features
+// function query() {
+//   reset();
+//   // lookup our input geometry
+//   var inputGeometry = geometries[geometry.value];
 
-  // query the service executing the selected relation with the selected input geometry
-  neighborhoods
-    .query()
-    [relationship.value](inputGeometry)
-    .ids(function (error, ids) {
-      // if there is an error with the query, you can handle it here
-      if (error) {
-        console.log("Error with query: " + error);
-      } else if (ids) {
-        previousIds = ids;
-        for (var i = ids.length - 1; i >= 0; i--) {
-          neighborhoods.setFeatureStyle(ids[i], { color: "red", weight: 2 });
-        }
-      }
-    });
-}
+//   // query the service executing the selected relation with the selected input geometry
+//   neighborhoods
+//     .query()
+//     [relationship.value](inputGeometry)
+//     .ids(function (error, ids) {
+//       // if there is an error with the query, you can handle it here
+//       if (error) {
+//         console.log("Error with query: " + error);
+//       } else if (ids) {
+//         previousIds = ids;
+//         for (var i = ids.length - 1; i >= 0; i--) {
+//           neighborhoods.setFeatureStyle(ids[i], { color: "red", weight: 2 });
+//         }
+//       }
+//     });
+// }
 
-// query when "Run Query" button is clicked
-runQueryButton.addEventListener("click", query);
+// // query when "Run Query" button is clicked
+// runQueryButton.addEventListener("click", query);
 
-// once all neighborhoods have loaded run the default query
-neighborhoods.once("load", function () {
-  query();
-});
+// // once all neighborhoods have loaded run the default query
+// neighborhoods.once("load", function () {
+//   query();
+// });

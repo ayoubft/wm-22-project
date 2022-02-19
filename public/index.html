@@ -10,10 +10,10 @@
     <link rel="stylesheet" href="css/leaflet.css">
     <script src="js/leaflet.js"></script>
     <!-- Load Esri Leaflet from CDN -->
-    <script src="https://unpkg.com/esri-leaflet@3.0.4/dist/esri-leaflet.js"></script>
+    <!-- <script src="https://unpkg.com/esri-leaflet@3.0.4/dist/esri-leaflet.js"></script> -->
 
     <!-- Load Esri Leaflet Vector from CDN -->
-    <script src="https://unpkg.com/esri-leaflet-vector@3.1.1/dist/esri-leaflet-vector.js"></script>
+    <!-- <script src="https://unpkg.com/esri-leaflet-vector@3.1.1/dist/esri-leaflet-vector.js"></script> -->
 
     <title>Précipitation Maroc</title>
     <!-- FAVICO -->
@@ -102,6 +102,9 @@
                             spatiales</b></button>
                     <div id="spatialQuery" class="DIV" style="display: none;">
                         <hr>
+                        <input name="searchTxt" type="text" maxlength="512" id="searchTxt" class="searchField" />
+                        <button id="btngetQuery">QUERY</button>
+                        <hr>
                         <button onclick='show_panel()'>SPATIAL QUERY</button>
                     </div>
                     <br>
@@ -116,7 +119,7 @@
     </div>
     </div>
 
-    <div id="panel" class="leaflet-bar" style="display: none;">
+    <!-- <div id="panel" class="leaflet-bar" style="display: none;">
         Communes
         <select name="relation" id="relationSelect">
             <option value="within">Within<options>
@@ -130,7 +133,7 @@
             <option value="line">Line<options>
             <option value="polygon">Polygon<options>
         </select>
-        <button id="executeQuery">Run Query</button>
+        <button id="executeQuery">Run Query</button> -->
 
     </div>
 
@@ -138,6 +141,7 @@
 <script src="data/p2018-12.js"></script>
 <script src="data/communes.js"></script>
 <script src="js/script.js"></script>
+<script src="js/script2.js"></script>
 <script src="data/statpluv.js"></script>
 
 </html>
