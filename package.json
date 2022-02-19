@@ -1,0 +1,33 @@
+{
+  "name": "wm-22-project",
+  "version": "1.0.0",
+  "description": "Precipitations thematic in Morocco",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ayoubft/wm-22-project.git"
+  },
+  "keywords": [
+    "precipitations",
+    "morocco",
+    "webmapping",
+    "leaflet",
+    "nodejs",
+    "html",
+    "css",
+    "js"
+  ],
+  "author": "Ayoub FATIHI",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ayoubft/wm-22-project/issues"
+  },
+  "homepage": "https://github.com/ayoubft/wm-22-project#readme",
+  "dependencies": {
+    "express": "^4.17.3",
+    "pg": "^8.7.3"
+  }
+}
