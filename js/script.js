@@ -51,12 +51,16 @@ const btns = document.getElementsByClassName("BTN");
 
 // toggle others
 function hide_other_divs(currDiv) {
-  reset_all();
+  panel.style.display = "none";
+  map.eachLayer(function (layer) {
+    if (layer._url != urlPositron) {
+      map.removeLayer(layer);
+    }
+  });
+
   for (let i = 0; i < divs.length; i++) {
     if (divs[i].id != currDiv) {
       divs[i].style.display = "none";
-    } else {
-      divs[i].style.display = "block";
     }
   }
 }
