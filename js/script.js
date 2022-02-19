@@ -90,16 +90,17 @@ value = selectMonthCom.options[selectMonthCom.selectedIndex].value;
 selectMonthCom.onclick = function changeContent() {
   value = selectMonthCom.options[selectMonthCom.selectedIndex].value;
   map.eachLayer(function (layer) {
-    map.removeLayer(layer);
+    if (layer._url != urlPositron) {
+      map.removeLayer(layer);
+    }
   });
-  addBM();
+  // addBM();
   geojson = L.geoJson(communes, {
     style: style,
     onEachFeature: onEachFeature,
   }).addTo(map);
   info.addTo(map);
   legend.addTo(map);
-  map.fitBounds(geojson.getBounds());
 };
 
 function getColor(d) {
