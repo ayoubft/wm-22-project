@@ -99,13 +99,26 @@
 
                     <button class="BTN" id="btnq"
                         onclick='hideDiv("spatialQuery");hide_other_divs("spatialQuery");'><b>🔎&emsp;Requêtes
-                            spatiales</b></button>
+                            SQL</b></button>
                     <div id="spatialQuery" class="DIV" style="display: none;">
                         <hr>
-                        <input name="searchTxt" type="text" maxlength="512" id="searchTxt" class="searchField" />
+                        <h3>Connection directe à la base de données Postgres avec extension PostGIS</h3>
+                        <h4>Pour ces requêtes spatiales merci de fetcher la géometrie sous forme de GeoJSON et l'aliaser
+                            <b>geom</b> comme : <b>ST_AsGeoJSON(geom) AS geom</b>
+                        </h4>
+                        <p>Ici essayer des requêtes comme:<br><br> <b>SELECT id, ST_AsGeoJSON(geom) AS geom FROM
+                                maroc</b><br><br>
+                            <b>SELECT id,
+                                ST_AsGeoJSON(geom) AS geom FROM communes WHERE mean2018 > 110</b><br><br>
+                            <b>SELECT a.id, ST_AsGeoJSON(c.geom) AS geom FROM communes AS c, aeroports AS a WHERE
+                                ST_Intersects(a.geom, c.geom)</b>
+                        </p>
+                        <!-- <input name="searchTxt" type="text" maxlength="1024" id="searchTxt" class="searchField" /> -->
+
+                        <textarea name="text" rows="14" cols="10" wrap="soft" name="searchTxt" id="searchTxt"
+                            class="searchField"> </textarea>
+
                         <button id="btngetQuery">QUERY</button>
-                        <hr>
-                        <button onclick='show_panel()'>SPATIAL QUERY</button>
                     </div>
                     <br>
 
