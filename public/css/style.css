@@ -143,3 +143,8 @@ body {
   background: white;
   padding: 10px;
 }
+
+.searchField {
+  height: 100px;
+  width: 250px;
+}
