@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "Precipitations thematic in Morocco",
   "main": "index.js",
+  "script": {
+    "start": "index.js"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
