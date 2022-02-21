@@ -197,7 +197,10 @@ info.update = function (props) {
   this._div.innerHTML =
     "<br><h3>🌧️ Précipitation mensuelle</h3>" +
     (props
-      ? `Commune : <b>${props.NAME}</b><br />${props[value]} mm </sup>`
+      ? `Commune : <b>${props.NAME}</b><br /> Précipitations: ${Math.round(
+          props[value],
+          2
+        )} mm </sup>`
       : "Survoler une commune!");
 };
 
