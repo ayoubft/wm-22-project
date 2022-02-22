@@ -9,11 +9,13 @@
     <!-- leaflet  -->
     <link rel="stylesheet" href="css/leaflet.css">
     <script src="js/leaflet.js"></script>
-    <!-- Load Esri Leaflet from CDN -->
-    <!-- <script src="https://unpkg.com/esri-leaflet@3.0.4/dist/esri-leaflet.js"></script> -->
+    <script src="//d3js.org/d3.v4.min.js"></script>
+    <script src="//npmcdn.com/geotiff@0.3.6/dist/geotiff.js"></script> <!-- optional -->
 
-    <!-- Load Esri Leaflet Vector from CDN -->
-    <!-- <script src="https://unpkg.com/esri-leaflet-vector@3.1.1/dist/esri-leaflet-vector.js"></script> -->
+    <!-- Plugin -->
+    <script src="https://ihcantabria.github.io/Leaflet.CanvasLayer.Field/dist/leaflet.canvaslayer.field.js"></script>
+    <!-- Color Palettes -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chroma-js/2.4.2/chroma.min.js"></script>
 
     <title>Précipitation au Maroc</title>
     <!-- FAVICO -->
@@ -52,7 +54,7 @@
                         </p>
                         <button id="btnstatpluv" onclick="show_statpluv();">AFFICHER LES STATIONS
                             PLUVIÉOMÉTRIQUE</button>
-                        <h2>🛈 Cliquer sur chaque station pour plus d'informations.</h2>
+                        <h3>🛈 Cliquer sur chaque station pour plus d'informations.</h3>
                     </div>
                     <br>
 
@@ -63,7 +65,7 @@
                         <hr>
                         <div class="custom-select">
                             <select id="slctmonth_com">
-                                <option value="____">Chisir un mois:</option>
+                                <option value="____">Choisir un mois:</option>
                                 <option value="prec-1-18">Janvier 2018</option>
                                 <option value="prec-2-18">Février 2018</option>
                                 <option value="prec-3-18">Mars 2018</option>
@@ -93,7 +95,27 @@
                         onclick='hideDiv("divRaster");hide_other_divs("divRaster");'><b>🏁&emsp;Rasters</b></button>
                     <div id="divRaster" class="DIV" style="display: none;">
                         <hr>
-                        Here goes the other things
+                        Ici, on va essayer d'afficher le rendu des rasters de précipitations au Maroc.<br>
+                        ATTENTION! Ca va prendre du temps!<br>
+                        <div class="custom-select-ras">
+                            <select id="slctmonth_ras">
+                                <option value="____">Choisir un mois:</option>
+                                <option value="2018_01.tif">Janvier 2018</option>
+                                <option value="2018_02.tif">Février 2018</option>
+                                <option value="2018_03.tif">Mars 2018</option>
+                                <option value="2018_04.tif">Avril 2018</option>
+                                <option value="2018_05.tif">Mai 2018</option>
+                                <option value="2018_06.tif">Juin 2018</option>
+                                <option value="2018_07.tif">Juillet 2018</option>
+                                <option value="2018_08.tif">Août 2018</option>
+                                <option value="2018_09.tif">Séptembre 2018</option>
+                                <option value="2018_10.tif">Octobre 2018</option>
+                                <option value="2018_11.tif">Novembre 2018</option>
+                                <option value="2018_12.tif">Décembre 2018</option>
+                            </select>
+                        </div>
+                        <br>
+                        <button id="btnras" onclick="showras('data/rasters/2018_01.tif');">AFFICHER RASTER</button>
                     </div>
                     <br>
 
@@ -103,9 +125,10 @@
                     <div id="spatialQuery" class="DIV" style="display: none;">
                         <hr>
                         <h3>Connection directe à la base de données Postgres avec extension PostGIS</h3>
-                        <h4>Pour ces requêtes spatiales merci de fetcher la géometrie sous forme de GeoJSON et l'aliaser
+                        <p>Pour ces requêtes spatiales merci de fetcher la géometrie sous forme de GeoJSON et
+                            l'aliaser
                             <b>geom</b> comme : <b>ST_AsGeoJSON(geom) AS geom</b>
-                        </h4>
+                        </p>
                         <p>Ici essayer des requêtes comme:<br><br> <b>SELECT id, ST_AsGeoJSON(geom) AS geom FROM
                                 maroc</b><br><br>
                             <b>SELECT id,

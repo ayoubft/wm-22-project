@@ -225,3 +225,49 @@ var myIcon = L.icon({
   iconUrl: "../css/images/marker-icon.png",
   shadowUrl: "marker-shadow.png",
 });
+
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+//             _____            _____ _______ ______ _____                    //
+//             |  __ \    /\    / ____|__   __|  ____|  __ \                  //
+//             | |__) |  /  \  | (___    | |  | |__  | |__) |                 //
+//             |  _  /  / /\ \  \___ \   | |  |  __| |  _  /                  //
+//             | | \ \ / ____ \ ____) |  | |  | |____| | \ \                  //
+//             |_|  \_/_/    \_|_____/   |_|  |______|_|  \_\                 //
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+let selectMonthRas, valuemonthras;
+
+function showras(tiff_) {
+  fetch(tiff_)
+    .then((r) => r.arrayBuffer())
+    .then(function (buffer) {
+      var s = L.ScalarField.fromGeoTIFF(buffer);
+      var layer1 = L.canvasLayer
+        .scalarField(s, {
+          color: chroma.scale("Blues").domain(s.range),
+          mouseMoveCursor: null,
+        })
+        .addTo(map);
+      map.fitBounds(layer1.getBounds());
+    });
+}
+
+selectMonthRas = document.getElementById("slctmonth_ras");
+
+selectMonthRas.onclick = function showRas_2() {
+  valuemonthras =
+    "data/rasters/" +
+    selectMonthRas.options[selectMonthRas.selectedIndex].value;
+  map.eachLayer(function (layer) {
+    if (layer._url != urlPositron) {
+      map.removeLayer(layer);
+    }
+  });
+
+  showras(valuemonthras);
+};
+
+var tiff = "data/rasters/2018_01.tif";
