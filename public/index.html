@@ -97,8 +97,18 @@
                         <hr>
                         Ici, on va essayer d'afficher le rendu des rasters de précipitations au Maroc.<br>
                         ATTENTION! Ca va prendre du temps!<br>
+                        <h4>Choix de la palette: </h4>
+                        <div class="custom-select-pal">
+                            <select id="slctpal" style="width: 98%;">
+                                <option value="Blues">Blues</option>
+                                <option value="PuBu">PuBu</option>
+                                <option value="BuPu">BuPu</option>
+                                <option value="Spectral">Spectral</option>
+                            </select>
+                        </div>
+                        <h4>Choix du mois de 2018: </h4>
                         <div class="custom-select-ras">
-                            <select id="slctmonth_ras">
+                            <select id="slctmonth_ras" style="width: 98%;">
                                 <option value="____">Choisir un mois:</option>
                                 <option value="2018_01.tif">Janvier 2018</option>
                                 <option value="2018_02.tif">Février 2018</option>
@@ -115,7 +125,7 @@
                             </select>
                         </div>
                         <br>
-                        <button id="btnras" onclick="showras('data/rasters/2018_01.tif');">AFFICHER RASTER</button>
+
                     </div>
                     <br>
 

@@ -238,7 +238,10 @@ var myIcon = L.icon({
 ////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
-let selectMonthRas, valuemonthras;
+let pal, selectPal, selectMonthRas, valuemonthras;
+
+selectPal = document.getElementById("slctpal");
+pal = selectPal.options[selectPal.selectedIndex].value;
 
 function showras(tiff_) {
   fetch(tiff_)
@@ -247,7 +250,7 @@ function showras(tiff_) {
       var s = L.ScalarField.fromGeoTIFF(buffer);
       var layer1 = L.canvasLayer
         .scalarField(s, {
-          color: chroma.scale("Blues").domain(s.range),
+          color: chroma.scale(pal).domain(s.range),
           mouseMoveCursor: null,
         })
         .addTo(map);
@@ -267,6 +270,8 @@ selectMonthRas.onclick = function showRas_2() {
     }
   });
 
+  selectPal = document.getElementById("slctpal");
+  pal = selectPal.options[selectPal.selectedIndex].value;
   showras(valuemonthras);
 };
 
