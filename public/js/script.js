@@ -1,17 +1,16 @@
-// the map
+/////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////
+//  _      ______          ______ _      ______ _______                            //
+// | |    |  ____|   /\   |  ____| |    |  ____|__   __|                           //
+// | |    | |__     /  \  | |__  | |    | |__     | |     _ __ ___   __ _ _ __     //
+// | |    |  __|   / /\ \ |  __| | |    |  __|    | |    | '_ ` _ \ / _` | '_ \    //
+// | |____| |____ / ____ \| |    | |____| |____   | |    | | | | | | (_| | |_) |   //
+// |______|______/_/    \_|_|    |______|______|  |_|    |_| |_| |_|\__,_| .__/    //
+//                                                                       | |       //
+//                                                                       |_|       //
+/////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////
 var map = L.map("map").setView([30.4937, -6.283], 6);
-
-// Google Earth Hybrid basemap
-// L.tileLayer("http://mt0.google.com/vt/lyrs=y&hl=en&x={x}&y={y}&z={z}&s=Ga", {
-//   attribution:
-//     '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-// }).addTo(map);
-
-// OpenStreetMap basemap
-// L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-//   attribution:
-//     '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-// }).addTo(map);
 
 // add Positron basemap
 const urlPositron =
@@ -238,6 +237,7 @@ var myIcon = L.icon({
 ////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
+
 let pal, selectPal, selectMonthRas, valuemonthras;
 
 selectPal = document.getElementById("slctpal");
@@ -276,3 +276,42 @@ selectMonthRas.onclick = function showRas_2() {
 };
 
 var tiff = "data/rasters/2018_01.tif";
+
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+//   ____  _    _ ______ _____  _____ ______  _____                           //
+// /  __ \| |  | |  ____|  __ \|_   _|  ____|/ ____|                          //
+// | |  | | |  | | |__  | |__) | | | | |__  | (___                            //
+// | |  | | |  | |  __| |  _  /  | | |  __|  \___ \                           //
+// | |__| | |__| | |____| | \ \ _| |_| |____ ____) |                          //
+// \___\_\\____/|______|_|  \_|_____|______|_____/                            //
+//                                                                            //
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+
+let myquery;
+let json3;
+
+const button = document.getElementById("btngetQuery");
+button.addEventListener("click", async (event) => {
+  let data = { q: document.getElementById("searchTxt").value };
+  let options = {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(data),
+  };
+  let response = await fetch("/api", options);
+  let json = await response.json();
+  console.log(json);
+
+  let response2 = await fetch("/api");
+  let json2 = await response2.json();
+  console.log(json2);
+  json2.forEach((i) => {
+    L.geoJSON(JSON.parse(i.geom), { icon: myIcon }).addTo(map);
+  });
+});
