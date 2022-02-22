@@ -129,6 +129,36 @@
                             l'aliaser
                             <b>geom</b> comme : <b>ST_AsGeoJSON(geom) AS geom</b>
                         </p>
+                        <h3>Description des tables disponibles:</h3>
+                        <table class="tg" style="table-layout: fixed; width: 286px">
+                            <colgroup>
+                                <col style="width: 95.75px">
+                                <col style="width: 189.75px">
+                            </colgroup>
+                            <tbody>
+                                <tr>
+                                    <td class="tg-3gq2">Table</td>
+                                    <td class="tg-xrgz"><span style="font-weight:bold">Columns</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="tg-clpl">aeroports<br></td>
+                                    <td class="tg-2bev">id, geom, OID_, Name, SymbolID, AltMode, Base, Snippet,
+                                        PopupInfo, HasLabel, LabelID</td>
+                                </tr>
+                                <tr>
+                                    <td class="tg-clpl">communes</td>
+                                    <td class="tg-2bev">id, geom, OBJECTID, NAME, mean2018</td>
+                                </tr>
+                                <tr>
+                                    <td class="tg-clpl">maroc</td>
+                                    <td class="tg-2bev">id, geom, name, descriptio</td>
+                                </tr>
+                                <tr>
+                                    <td class="tg-clpl">stations</td>
+                                    <td class="tg-2bev">id, geom, Code, Nom, Bassin, Type</td>
+                                </tr>
+                            </tbody>
+                        </table>
                         <p>Ici essayer des requêtes comme:<br><br> <b>SELECT id, ST_AsGeoJSON(geom) AS geom FROM
                                 maroc</b><br><br>
                             <b>SELECT id,
