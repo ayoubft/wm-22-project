@@ -130,7 +130,7 @@ function style(feature) {
     opacity: 1,
     color: "gray",
     dashArray: "3",
-    fillOpacity: 0.7,
+    fillOpacity: 0.6,
   };
 }
 
@@ -141,7 +141,7 @@ function highlightFeature(e) {
     weight: 5,
     color: "#666",
     dashArray: "",
-    fillOpacity: 0.7,
+    fillOpacity: 0.8,
   });
 
   if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
@@ -312,6 +312,15 @@ button.addEventListener("click", async (event) => {
   let json2 = await response2.json();
   console.log(json2);
   json2.forEach((i) => {
-    L.geoJSON(JSON.parse(i.geom), { icon: myIcon }).addTo(map);
+    L.geoJSON(JSON.parse(i.geom), {
+      style: {
+        weight: 0.3,
+        opacity: 1,
+        color: "black",
+        dashArray: "3",
+        fillOpacity: 0.7,
+      },
+      icon: myIcon,
+    }).addTo(map);
   });
 });
