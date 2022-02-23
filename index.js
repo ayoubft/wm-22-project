@@ -1,6 +1,7 @@
 const express = require("express");
 const pool = require("./connection.js");
 const bodyParser = require("body-parser");
+require("dotenv").config();
 
 const app = express();
 
