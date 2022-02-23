@@ -1,12 +1,17 @@
 const { Pool } = require("pg");
-require("dotenv").config();
+
+// const pool = new Pool({
+//   host: "localhost",
+//   user: "postgres",
+//   port: 5432,
+//   password: "",
+//   database: "wm-22-precip-DB",
+// });
 
 const pool = new Pool({
-  connectionString:
-    process.env.DATABASE_URL ||
-    "postgres://postgres@localhost:5432/wm-22-precip-DB",
+  connectionString: process.env.DATABASE_URL,
   ssl: {
-    rejectUnauthorized: process.env.SSL_BOOL,
+    rejectUnauthorized: false,
   },
 });
 
