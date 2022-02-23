@@ -294,8 +294,8 @@ var tiff = "data/rasters/2018_01.tif";
 let myquery;
 let json3;
 
-const button = document.getElementById("btngetQuery");
-button.addEventListener("click", async (event) => {
+const buttonQ = document.getElementById("btngetQuery");
+buttonQ.addEventListener("click", async (event) => {
   let data = { q: document.getElementById("searchTxt").value };
   let options = {
     method: "POST",
@@ -324,3 +324,13 @@ button.addEventListener("click", async (event) => {
     }).addTo(map);
   });
 });
+
+function clearQ() {
+  document.getElementById("searchTxt").value = "";
+
+  map.eachLayer(function (layer) {
+    if (layer._url != urlPositron) {
+      map.removeLayer(layer);
+    }
+  });
+}
