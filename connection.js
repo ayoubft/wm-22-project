@@ -9,14 +9,10 @@ const { Pool } = require("pg");
 // });
 
 const pool = new Pool({
-  connectionString:
-    process.env.DATABASE_URL ||
-    "postgres://postgres@localhost:5432/wm-22-precip-DB",
-  ssl: process.env.DATABASE_URL
-    ? {
-        rejectUnauthorized: true,
-      }
-    : false,
+  connectionString: process.env.DATABASE_URL,
+  ssl: {
+    rejectUnauthorized: false,
+  },
 });
 
 module.exports = pool;
