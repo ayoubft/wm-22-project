@@ -130,21 +130,6 @@ body {
   display: inline-block;
 }
 
-/* for graying the map */
-/* .leaflet-tile-pane {
-  -webkit-filter: grayscale(100%);
-  filter: grayscale(100%);
-} */
-
-#panel {
-  position: absolute;
-  top: 80px;
-  right: 10px;
-  z-index: 1000;
-  background: white;
-  padding: 10px;
-}
-
 .searchField {
   height: 100px;
   width: 98%;
@@ -211,4 +196,13 @@ body {
   border-color: #656565;
   text-align: left;
   vertical-align: top;
+}
+
+/* Loader */
+#loader {
+  height: 100vh;
+  width: 100%;
+  background: #383434 url("images/rain.gif") no-repeat center;
+  position: fixed;
+  z-index: 999999;
 }
