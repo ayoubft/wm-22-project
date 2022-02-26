@@ -20,7 +20,7 @@ var map = L.map("map").setView([30.4937, -6.283], 6);
 
 // add Positron basemap
 const urlPositron =
-  "https://maps.geoapify.com/v1/tile/positron/{z}/{x}/{y}.png?apiKey=b463cc5c1e7a4046af3cf015984e91fa";
+  "https://maps.geoapify.com/v1/tile/positron/{z}/{x}/{y}.png?&apiKey=eb49109e3f6042e18be4496f00fe2acf";
 function addBM() {
   L.tileLayer(urlPositron, {
     attribution:
@@ -136,7 +136,7 @@ function style(feature) {
     opacity: 1,
     color: "gray",
     dashArray: "3",
-    fillOpacity: 0.6,
+    fillOpacity: 0.8,
   };
 }
 
@@ -147,7 +147,7 @@ function highlightFeature(e) {
     weight: 5,
     color: "#666",
     dashArray: "",
-    fillOpacity: 0.8,
+    fillOpacity: 0.9,
   });
 
   if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
