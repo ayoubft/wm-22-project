@@ -30,3 +30,22 @@ app.post("/api", (request, response) => {
   });
   pool.connect();
 });
+
+app.post("/api2", (request, response) => {
+  console.log("I got a request !");
+  console.log(request.body);
+  data = request.body;
+  response.json({
+    status: "success",
+    query: data.q,
+  });
+  app.get("/api2", (req, res) => {
+    pool.query(data.q, (err, result) => {
+      if (!err) {
+        res.send(result.rows);
+      }
+    });
+    // pool.end();
+  });
+  pool.connect();
+});
