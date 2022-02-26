@@ -291,14 +291,11 @@ var tiff = "data/rasters/2018_01.tif";
 //             | |  | | |  | | |__  | |__) | | | | |__  | (___                //
 //             | |  | | |  | |  __| |  _  /  | | |  __|  \___ \               //
 //             | |__| | |__| | |____| | \ \ _| |_| |____ ____) |              //
-//             \___\_\\____/|______|_|  \_|_____|______|_____/                //
+//    spatial  \___\_\\____/|______|_|  \_|_____|______|_____/                //
 //                                                                            //
 ////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
-
-let myquery;
-let json3;
 
 const buttonQ = document.getElementById("btngetQuery");
 buttonQ.addEventListener("click", async (event) => {
@@ -339,4 +336,108 @@ function clearQ() {
       map.removeLayer(layer);
     }
   });
+}
+
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+//               ____  _    _ ______ _____  _____ ______  _____               //
+//             /  __ \| |  | |  ____|  __ \|_   _|  ____|/ ____|              //
+//             | |  | | |  | | |__  | |__) | | | | |__  | (___                //
+//             | |  | | |  | |  __| |  _  /  | | |  __|  \___ \               //
+//             | |__| | |__| | |____| | \ \ _| |_| |____ ____) |              //
+//             \___\_\\____/|______|_|  \_|_____|______|_____/                //
+//                                                                            //
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+
+const buttonQ2 = document.getElementById("btngetQuery2");
+let myTable = document.querySelector("#myTable");
+let headers;
+
+buttonQ2.addEventListener("click", async (event) => {
+  let data2 = { q: document.getElementById("searchTxt2").value };
+  let options2 = {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(data2),
+  };
+  let response3 = await fetch("/api2", options2);
+  let json3 = await response3.json();
+  console.log(json3);
+
+  let response4 = await fetch("/api2");
+  let json4 = await response4.json();
+  headers = Object.keys(json4[0]);
+
+  let table = document.createElement("table");
+  let headerRow = document.createElement("tr");
+
+  headers.forEach((headerText) => {
+    let header = document.createElement("th");
+    let textNode = document.createTextNode(headerText);
+    header.appendChild(textNode);
+    headerRow.appendChild(header);
+  });
+  table.appendChild(headerRow);
+  json4.forEach((emp) => {
+    let row = document.createElement("tr");
+    Object.values(emp).forEach((text) => {
+      let cell = document.createElement("td");
+      let textNode = document.createTextNode(text);
+      cell.appendChild(textNode);
+      row.appendChild(cell);
+    });
+    table.appendChild(row);
+  });
+  myTable.appendChild(table);
+  // });
+});
+
+function clearQ2() {
+  document.getElementById("searchTxt2").value = "";
+  document.getElementById("myTable").textContent = "";
+}
+
+//
+//
+//
+const openModalButtons = document.querySelectorAll("[data-modal-target]");
+const closeModalButtons = document.querySelectorAll("[data-close-button]");
+const overlay = document.getElementById("overlay");
+
+openModalButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    const modal = document.querySelector(button.dataset.modalTarget);
+    openModal(modal);
+  });
+});
+
+overlay.addEventListener("click", () => {
+  const modals = document.querySelectorAll(".modal.active");
+  modals.forEach((modal) => {
+    closeModal(modal);
+  });
+});
+
+closeModalButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    const modal = button.closest(".modal");
+    closeModal(modal);
+  });
+});
+
+function openModal(modal) {
+  if (modal == null) return;
+  modal.classList.add("active");
+  overlay.classList.add("active");
+}
+
+function closeModal(modal) {
+  if (modal == null) return;
+  modal.classList.remove("active");
+  overlay.classList.remove("active");
 }
