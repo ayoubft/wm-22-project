@@ -129,8 +129,52 @@
                     </div>
                     <br>
 
+
+                    <button class="BTN" id="btnreqNor"
+                        onclick='hideDiv("divreq");hide_other_divs("divreq");'><b>🔎&emsp;Requêtes SQL</b></button>
+                    <div id="divreq" class="DIV" style="display: none;">
+
+                        <h3>Description des tables disponibles:</h3>
+                        <table class="tg" style="table-layout: fixed; width: 286px">
+                            <colgroup>
+                                <col style="width: 95.75px">
+                                <col style="width: 189.75px">
+                            </colgroup>
+                            <tbody>
+                                <tr>
+                                    <td class="tg-3gq2">Table</td>
+                                    <td class="tg-xrgz"><span style="font-weight:bold">Columns</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="tg-clpl">aeroports<br></td>
+                                    <td class="tg-2bev">id, geom, "OID_", "Name", "SymbolID", "AltMode", "Base",
+                                        "Snippet",
+                                        "PopupInfo", "HasLabel", "LabelID"</td>
+                                </tr>
+                                <tr>
+                                    <td class="tg-clpl">communes</td>
+                                    <td class="tg-2bev">id, geom, "OBJECTID", "NAME", "mean2018"</td>
+                                </tr>
+                                <tr>
+                                    <td class="tg-clpl">maroc</td>
+                                    <td class="tg-2bev">id, geom, "name", "descriptio"</td>
+                                </tr>
+                                <tr>
+                                    <td class="tg-clpl">stations</td>
+                                    <td class="tg-2bev">id, geom, "Code", "Nom", "Bassin", "Type"</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <hr><textarea name="text" rows="14" cols="10" wrap="soft" name="searchTxt" id="searchTxt2"
+                            class="searchField"> </textarea>
+
+                        <button id="btngetQuery2" style="width: 49%;" data-modal-target="#modal">QUERY</button>
+                        <button id="btnRemQuery2" style="width: 49%;" onclick="clearQ2()">Clear</button>
+                    </div>
+                    <br>
+
                     <button class="BTN" id="btnq"
-                        onclick='hideDiv("spatialQuery");hide_other_divs("spatialQuery");'><b>🔎&emsp;Requêtes
+                        onclick='hideDiv("spatialQuery");hide_other_divs("spatialQuery");'><b>🌍&emsp;Requêtes spatiales
                             SQL</b></button>
                     <div id="spatialQuery" class="DIV" style="display: none;">
                         <hr>
@@ -177,7 +221,6 @@
                             <b>SELECT a.id, ST_AsGeoJSON(c.geom) AS geom FROM communes AS c, aeroports AS a WHERE
                                 ST_Intersects(a.geom, c.geom)</b>
                         </p>
-                        <!-- <input name="searchTxt" type="text" maxlength="1024" id="searchTxt" class="searchField" /> -->
 
                         <textarea name="text" rows="14" cols="10" wrap="soft" name="searchTxt" id="searchTxt"
                             class="searchField"> </textarea>
@@ -187,48 +230,6 @@
                     </div>
                     <br>
 
-                    <button class="BTN" id="btnreqNor"
-                        onclick='hideDiv("divreq");hide_other_divs("divreq");'><b>🔎&emsp;Requêtes</b></button>
-                    <div id="divreq" class="DIV" style="display: none;">
-
-                        <h3>Description des tables disponibles:</h3>
-                        <table class="tg" style="table-layout: fixed; width: 286px">
-                            <colgroup>
-                                <col style="width: 95.75px">
-                                <col style="width: 189.75px">
-                            </colgroup>
-                            <tbody>
-                                <tr>
-                                    <td class="tg-3gq2">Table</td>
-                                    <td class="tg-xrgz"><span style="font-weight:bold">Columns</span></td>
-                                </tr>
-                                <tr>
-                                    <td class="tg-clpl">aeroports<br></td>
-                                    <td class="tg-2bev">id, geom, "OID_", "Name", "SymbolID", "AltMode", "Base",
-                                        "Snippet",
-                                        "PopupInfo", "HasLabel", "LabelID"</td>
-                                </tr>
-                                <tr>
-                                    <td class="tg-clpl">communes</td>
-                                    <td class="tg-2bev">id, geom, "OBJECTID", "NAME", "mean2018"</td>
-                                </tr>
-                                <tr>
-                                    <td class="tg-clpl">maroc</td>
-                                    <td class="tg-2bev">id, geom, "name", "descriptio"</td>
-                                </tr>
-                                <tr>
-                                    <td class="tg-clpl">stations</td>
-                                    <td class="tg-2bev">id, geom, "Code", "Nom", "Bassin", "Type"</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <hr><textarea name="text" rows="14" cols="10" wrap="soft" name="searchTxt" id="searchTxt2"
-                            class="searchField"> </textarea>
-
-                        <button id="btngetQuery2" style="width: 49%;" data-modal-target="#modal">QUERY</button>
-                        <button id="btnRemQuery2" style="width: 49%;" onclick="clearQ2()">Clear</button>
-                    </div>
-                    <br>
 
                     <button class="resetBTN" onclick='reset_all()'><b>♾ reset</b></button>
                     <br>
