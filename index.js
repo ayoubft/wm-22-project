@@ -1,14 +1,19 @@
+// Requiring module
 const express = require("express");
 const pool = require("./connection.js");
 const bodyParser = require("body-parser");
+const path = require("path");
 require("dotenv").config();
 
 const app = express();
 const port = process.env.PORT || 3000;
-app.listen(port, () => console.log(`Listening at ${port}`));
+
+// Set public as static directory
 app.use(express.static("public"));
 app.use(express.json({ limit: "1mb" }));
 app.use(bodyParser.json());
+// Server setup
+app.listen(port, () => console.log(`Listening at ${port}`));
 
 let data;
 

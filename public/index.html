@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css" />
+
     <!-- leaflet  -->
     <link rel="stylesheet" href="css/leaflet.css">
     <script src="js/leaflet.js"></script>
@@ -14,10 +15,15 @@
 
     <!-- Plugin -->
     <script src="https://ihcantabria.github.io/Leaflet.CanvasLayer.Field/dist/leaflet.canvaslayer.field.js"></script>
+
     <!-- Color Palettes -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/chroma-js/2.4.2/chroma.min.js"></script>
 
+    <!-- TensoFlow -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.5.2/dist/tf.min.js"></script>
+
     <title>Précipitation au Maroc</title>
+
     <!-- FAVICO -->
     <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
@@ -227,18 +233,56 @@
                         </p>
 
                         <textarea name="text" rows="14" cols="10" wrap="soft" name="searchTxt" id="searchTxt"
-                            class="searchField"> </textarea>
+                            class="searchField"></textarea>
 
                         <button id="btngetQuery" style="width: 49%;">QUERY</button>
                         <button id="btnRemQuery" style="width: 49%;" onclick="clearQ()">Clear</button>
                     </div>
                     <br>
 
+                    <button class="BTN" id="btnml"
+                        onclick='hideDiv("divMl");hide_other_divs("divMl");'><b>🌀&emsp;Prévision</b></button>
+                    <div id="divMl" class="DIV" style="display: none;">
+                        <hr>
+                        <h2>!!⚠️ Expérimental ⚠️!!</h2>
+                        <h3>Prévision des précipitations mensuelles dans la commune de Khouribga</h3>
+                        <h3>On suppose qu'on est en fin 2018 (selon les données qu'on a), on a entraine un modèle LSTM -
+                            <a href="https://www.kaggle.com/yobfat/forecastingprecipkhouribgacommune/"
+                                target="_blank">savoir plus içi</a> - à partir des données à partir de 2000 jusqu'à
+                            2018.
+                        </h3>
+                        <p>On va prévoir les précipitations <b>Janvier 2019</b>; mais normalement on aura la donnée
+                            de chaque mois avant le mois actuelle et on va le prévoir.</p>
+                        <p>Essayer avec n'importe quels 12 mois pour prévoir avec le modèle LSTM entraîné.</p>
+                        <input type="number" id="m1" min="0" max="1000" placeholder="month -12">
+                        <input type="number" id="m2" min="0" max="1000" placeholder="month -11">
+                        <input type="number" id="m3" min="0" max="1000" placeholder="month -10">
+                        <input type="number" id="m4" min="0" max="1000" placeholder="month -9">
+                        <input type="number" id="m5" min="0" max="1000" placeholder="month -8">
+                        <input type="number" id="m6" min="0" max="1000" placeholder="month -7">
+                        <input type="number" id="m7" min="0" max="1000" placeholder="month -6">
+                        <input type="number" id="m8" min="0" max="1000" placeholder="month -5">
+                        <input type="number" id="m9" min="0" max="1000" placeholder="month -4">
+                        <input type="number" id="m10" min="0" max="1000" placeholder="month -3">
+                        <input type="number" id="m11" min="0" max="1000" placeholder="month -2">
+                        <input type="number" id="m12" min="0" max="1000" placeholder="month -1">
+                        <br><br>
+
+                        <button id="btnFillMonths" style="width: 98%;">Remplir par données de 2018</button>
+                        <br><br>
+                        <button id="btnMl" style="width: 98%;">Prévoir le mois prochain</button>
+                        <div class="center">
+                            <h1 id="txtpredictionMl"></h1>
+                        </div>
+                    </div>
+                    <br>
 
                     <button class="resetBTN" onclick='reset_all()'><b>♾ reset</b></button>
                     <br>
                 </div>
+
                 <div class="box-2 header">🌧️ Précipitations au Maroc</div>
+
             </div>
 
 

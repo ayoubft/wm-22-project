@@ -77,11 +77,12 @@ body {
   text-align: left;
   padding: 20px;
   background-color: rgb(212, 212, 212);
+  border-radius: 8px;
   /* color: white; */
 }
 
 .BTN:hover {
-  background-color: #0e80cc; /* Green */
+  background-color: #1f4158; /* Green */
   color: white;
 }
 
@@ -91,6 +92,7 @@ body {
   font-size: 25px;
   width: 100%;
   padding: 10px;
+  border-radius: 8px;
 }
 
 #slctmonth_com {
@@ -284,4 +286,12 @@ td {
 #overlay.active {
   opacity: 1;
   pointer-events: all;
+}
+
+.center {
+  text-align: center;
+}
+
+input[type="number"] {
+  width: 30%;
 }

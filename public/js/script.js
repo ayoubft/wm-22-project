@@ -441,3 +441,80 @@ function closeModal(modal) {
   modal.classList.remove("active");
   overlay.classList.remove("active");
 }
+
+////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////
+// _       _____ _______ __  __    ______              _____          _   _               //
+// | |     / ____|__   __|  \/  |  |  ____|            / ____|        | | (_)             //
+// | |    | (___    | |  | \  / |  | |__ ___  _ __ ___| |     __ _ ___| |_ _ _ __   __ _  //
+// | |     \___ \   | |  | |\/| |  |  __/ _ \| '__/ _ | |    / _` / __| __| | '_ \ / _` | //
+// | |____ ____) |  | |  | |  | |  | | | (_) | | |  __| |___| (_| \__ | |_| | | | | (_| | //
+// |______|_____/   |_|  |_|  |_|  |_|  \___/|_|  \___|\_____\__,_|___/\__|_|_| |_|\__, | //
+//                                                                                  __/ | //
+//                                                                                 |___/  //
+////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////
+
+// Setting up tfjs with the model we downloaded
+tf.loadLayersModel("model/model.json").then(function (model) {
+  window.model = model;
+});
+
+// Predict function
+var predict = function (input) {
+  if (window.model) {
+    return window.model.predict([tf.tensor(input).reshape([1, 12])]);
+  } else {
+    // The model takes a bit to load,
+    // if we are too fast, wait
+    setTimeout(function () {
+      predict(input);
+    }, 50);
+  }
+};
+
+let buttonML = document.getElementById("btnMl");
+let txtpredML = document.getElementById("txtpredictionMl");
+let precipData2018 = [34, 21, 17, 23, 27, 3, 1, 6, 5, 34, 44, 14];
+let precipData = [];
+let pred;
+
+function addPred(str) {
+  txtpredMl.innerHTML = `${str}`;
+}
+
+buttonML.addEventListener("click", (event) => {
+  precipData = [];
+  for (let i = 0; i < months.length; i++) {
+    precipData.push(Number(months[i].value));
+  }
+
+  predict(precipData)
+    .data()
+    .then((d) => {
+      txtpredML.textContent = `${Math.round(d[0])} mm`;
+    });
+});
+
+let btnFillMonths = document.getElementById("btnFillMonths");
+let m1 = document.getElementById("m1");
+let m2 = document.getElementById("m2");
+let m3 = document.getElementById("m3");
+let m4 = document.getElementById("m4");
+let m5 = document.getElementById("m5");
+let m6 = document.getElementById("m6");
+let m7 = document.getElementById("m7");
+let m8 = document.getElementById("m8");
+let m9 = document.getElementById("m9");
+let m10 = document.getElementById("m10");
+let m11 = document.getElementById("m11");
+let m12 = document.getElementById("m12");
+let months = [m1, m2, m3, m4, m5, m6, m7, m8, m9, m10, m11, m12];
+
+btnFillMonths.addEventListener("click", (event) => {
+  for (let i = 0; i < months.length; i++) {
+    months[i].value = precipData2018[i];
+  }
+});
