@@ -43,6 +43,9 @@ For this project, the following technologies were used, in addition to many tuto
 ![tf](https://img.shields.io/badge/TensorFlow-FF6F00?style=for-the-badge&logo=TensorFlow&logoColor=white)
 ![]()
 
+## Reproduce this work
+[Jump to the wiki!](https://github.com/ayoubft/wm-22-project/wiki)
+
 ## Data
 
 [Download page.](https://worldclim.org/data/monthlywth.html)
