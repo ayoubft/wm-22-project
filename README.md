@@ -2,6 +2,8 @@
 
 Full stack web app to visualize and forecast precipitations in Morocco.
 
+![Screenshot_20220228_011651](https://user-images.githubusercontent.com/63267601/155906366-9ae14723-6896-43ad-9524-eef29609967c.png)
+
 ## Features
 
 - **Visualize weather stations in Morocco with correspondant informations**
