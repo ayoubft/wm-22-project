@@ -1,5 +1,7 @@
 # Morocco Precipitations Dashboard <a target="_blank" href="https://precip-morocco.herokuapp.com/">🔗</a>
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 Full stack web app to visualize and forecast precipitations in Morocco <a target="_blank" href="https://precip-morocco.herokuapp.com/">🔗</a>.
 
 ![dashboard preview VF](https://user-images.githubusercontent.com/63267601/155906366-9ae14723-6896-43ad-9524-eef29609967c.png)
