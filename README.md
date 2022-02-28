@@ -1,6 +1,6 @@
-# Morocco Precipitations Dashboard
+# Morocco Precipitations Dashboard [🔗](https://precip-morocco.herokuapp.com/)
 
-Full stack web app to visualize and forecast precipitations in Morocco.
+Full stack web app to visualize and forecast precipitations in Morocco [🔗](https://precip-morocco.herokuapp.com/).
 
 ![dashboard preview VF](https://user-images.githubusercontent.com/63267601/155906366-9ae14723-6896-43ad-9524-eef29609967c.png)
 
