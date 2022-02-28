@@ -1,6 +1,6 @@
-# Morocco Precipitations Dashboard [🔗](https://precip-morocco.herokuapp.com/)
+# Morocco Precipitations Dashboard <a target="_blank" href="https://precip-morocco.herokuapp.com/">🔗</a>
 
-Full stack web app to visualize and forecast precipitations in Morocco [🔗](https://precip-morocco.herokuapp.com/).
+Full stack web app to visualize and forecast precipitations in Morocco <a target="_blank" href="https://precip-morocco.herokuapp.com/">🔗</a>.
 
 ![dashboard preview VF](https://user-images.githubusercontent.com/63267601/155906366-9ae14723-6896-43ad-9524-eef29609967c.png)
 
@@ -22,11 +22,14 @@ Full stack web app to visualize and forecast precipitations in Morocco [🔗](ht
 
 # Technologies
 
+For this project, the following technologies were used, in addition to many tutorials and the documentation of each.
+
 ### Frontend
 
 ![js](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E)
 ![html](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
 ![css](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+![leaflet](https://img.shields.io/badge/Leaflet-199900?style=for-the-badge&logo=Leaflet&logoColor=white)
 
 ### Backend
 
