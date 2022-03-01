@@ -69,6 +69,8 @@
                             commune</b></button>
                     <div id="divcom" class="DIV" style="display: none;">
                         <hr>
+                        <p>La précipitation moyenne mensuelle par commune.</p>
+                        <h4>Choix du mois de 2018: </h4>
                         <div class="custom-select">
                             <select id="slctmonth_com">
                                 <option value="____">Choisir un mois:</option>
@@ -93,7 +95,9 @@
                         onclick='hideDiv("divCours");hide_other_divs("divCours");'><b>🌊&emsp;Cours d'eau</b></button>
                     <div id="divCours" class="DIV" style="display: none;">
                         <hr>
-                        Here goes the other things
+                        <h2>Les cours d'eau au Maroc.</h2>
+
+                        <button id="btnRiv" onclick="showRiv();">AFFICHER LES COURS D'EAU</button>
                     </div>
                     <br>
 
@@ -101,7 +105,7 @@
                         onclick='hideDiv("divRaster");hide_other_divs("divRaster");'><b>🏁&emsp;Rasters</b></button>
                     <div id="divRaster" class="DIV" style="display: none;">
                         <hr>
-                        Ici, on va essayer d'afficher le rendu des rasters de précipitations au Maroc.<br>
+                        Afficher le rendu des rasters de précipitations au Maroc.<br>
                         ATTENTION! Ca va prendre du temps!<br>
                         <h4>Choix de la palette: </h4>
                         <div class="custom-select-pal">
