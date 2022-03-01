@@ -18,6 +18,8 @@ Full stack web app to visualize and forecast precipitations in Morocco <a target
 
 - **Visualize water streams of Morocco**
 
+  ![Screenshot_20220301_085528](https://user-images.githubusercontent.com/63267601/156127979-e328b4c2-129c-4405-8990-84ca0503ed26.png)
+
 - **Visualize raw rasters images of precipitations directly on the map**
 
   ![Screenshot_20220228_164525](https://user-images.githubusercontent.com/63267601/156013029-6ec20895-703f-49e7-9790-9379aa111e30.png)
