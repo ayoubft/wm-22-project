@@ -58,7 +58,7 @@
                             toutes ou une partie seulement de ces informations, selon leur type : agro-météorologique,
                             d’aéroport, météoroutière, climatologique, etc.
                         </p>
-                        <button id="btnstatpluv" onclick="show_statpluv();">AFFICHER LES STATIONS
+                        <button id="btnstatpluv" onclick="show_statpluv();" style="width: 98%;">AFFICHER LES STATIONS
                             PLUVIÉOMÉTRIQUE</button>
                         <h3>🛈 Cliquer sur chaque station pour plus d'informations.</h3>
                     </div>
@@ -95,9 +95,11 @@
                         onclick='hideDiv("divCours");hide_other_divs("divCours");'><b>🌊&emsp;Cours d'eau</b></button>
                     <div id="divCours" class="DIV" style="display: none;">
                         <hr>
-                        <h2>Les cours d'eau au Maroc.</h2>
-
-                        <button id="btnRiv" onclick="showRiv();">AFFICHER LES COURS D'EAU</button>
+                        <h2>Les cours d'eau au Maroc</h2>
+                        <p>Le Maroc possède beaucoup de cours d'eau (fleuves et oueds) tels que :
+                            Bouregreg, Moulouya, Ouargha, Oum Errabiaa, Ourika, Sebou, Souss, Tensift, Drâa ...
+                        </p>
+                        <button id="btnRiv" onclick="showRiv();" style="width: 98%;">AFFICHER LES COURS D'EAU</button>
                     </div>
                     <br>
 
@@ -178,7 +180,7 @@
                         </table>
                         <br>
                         <p>Ici essayer des requêtes comme:<br><br> <b>select id, "NAME", mean2018 from communes where
-                                mean2018 >99</b><br><br>
+                                mean2018 > 80 </b><br><br>
                             <textarea name="text" rows="14" cols="10" wrap="soft" name="searchTxt" id="searchTxt2"
                                 class="searchField"> </textarea>
 
@@ -231,7 +233,7 @@
                         <p>Ici essayer des requêtes comme:<br><br> <b>SELECT id, ST_AsGeoJSON(geom) AS geom FROM
                                 maroc</b><br><br>
                             <b>SELECT id,
-                                ST_AsGeoJSON(geom) AS geom FROM communes WHERE mean2018 > 110</b><br><br>
+                                ST_AsGeoJSON(geom) AS geom FROM communes WHERE mean2018 > 50</b><br><br>
                             <b>SELECT a.id, ST_AsGeoJSON(c.geom) AS geom FROM communes AS c, aeroports AS a WHERE
                                 ST_Intersects(a.geom, c.geom)</b>
                         </p>
