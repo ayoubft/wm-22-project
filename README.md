@@ -63,12 +63,6 @@ For this project, the following technologies were used, in addition to many tuto
 
 [Jump to the wiki!](https://github.com/ayoubft/wm-22-project/wiki)
 
-## Data
+## Data Sources
 
-[Download page.](https://worldclim.org/data/monthlywth.html)
-
-CRU-TS 4.03 (Harris et al., 2014) downscaled with WorldClim 2.1 (Fick and Hijmans, 2017).
-
-Fick, S.E. and R.J. Hijmans, 2017. WorldClim 2: new 1km spatial resolution climate surfaces for global land areas. [International Journal of Climatology 37 (12): 4302-4315](https://rmets.onlinelibrary.wiley.com/doi/abs/10.1002/joc.5086%22).
-
-Harris, I., P.D. Jones, T.J. Osborn, and D.H. Lister (2014), Updated high-resolution grids of monthly climatic observations - the CRU TS3.10 Dataset. International Journal of Climatology 34, 623-642. [doi:10.1002/joc.3711](doi:10.1002/joc.3711)
+[Check it here.](https://github.com/ayoubft/wm-22-project/wiki/Data-sources)
