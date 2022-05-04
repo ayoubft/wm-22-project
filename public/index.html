@@ -22,7 +22,7 @@
     <!-- TensoFlow -->
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.5.2/dist/tf.min.js"></script>
 
-    <title>Précipitation au Maroc</title>
+    <title>Precipitation Dashboard</title>
 
     <!-- FAVICO -->
     <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
@@ -179,7 +179,7 @@
                             </tbody>
                         </table>
                         <br>
-                        <p>Ici essayer des requêtes comme:<br><br> <b>select id, "NAME", mean2018 from communes where
+                        <p>Try queries like:<br><br> <b>select id, "NAME", mean2018 from communes where
                                 mean2018 > 80 </b><br><br>
                             <textarea name="text" rows="14" cols="10" wrap="soft" name="searchTxt" id="searchTxt2"
                                 class="searchField"> </textarea>
@@ -190,16 +190,15 @@
                     <br>
 
                     <button class="BTN" id="btnq"
-                        onclick='hideDiv("spatialQuery");hide_other_divs("spatialQuery");'><b>🌍&emsp;Requêtes spatiales
-                            SQL</b></button>
+                        onclick='hideDiv("spatialQuery");hide_other_divs("spatialQuery");'><b>🌍&emsp;Spatial
+                            Queries</b></button>
                     <div id="spatialQuery" class="DIV" style="display: none;">
                         <hr>
-                        <h3>Connection directe à la base de données Postgres avec extension PostGIS</h3>
-                        <p>Pour ces requêtes spatiales merci de fetcher la géometrie sous forme de GeoJSON et
-                            l'aliaser
-                            <b>geom</b> comme : <b>ST_AsGeoJSON(geom) AS geom</b>
+                        <h3>Direct connection to Postgres database with PostGIS extension</h3>
+                        <p>For these spatial queries please fetch the geometry as GeoJSON and alias it<b>geom</b> as:
+                            <b>ST_AsGeoJSON(geom) AS geom</b>
                         </p>
-                        <h3>Description des tables disponibles:</h3>
+                        <h3>Description of available tables:</h3>
                         <table class="tg" style="table-layout: fixed; width: 286px">
                             <colgroup>
                                 <col style="width: 95.75px">
@@ -230,7 +229,7 @@
                                 </tr>
                             </tbody>
                         </table>
-                        <p>Ici essayer des requêtes comme:<br><br> <b>SELECT id, ST_AsGeoJSON(geom) AS geom FROM
+                        <p>Try queries like:<br><br> <b>SELECT id, ST_AsGeoJSON(geom) AS geom FROM
                                 maroc</b><br><br>
                             <b>SELECT id,
                                 ST_AsGeoJSON(geom) AS geom FROM communes WHERE mean2018 > 50</b><br><br>
@@ -247,19 +246,19 @@
                     <br>
 
                     <button class="BTN" id="btnml"
-                        onclick='hideDiv("divMl");hide_other_divs("divMl");'><b>🌀&emsp;Prévision</b></button>
+                        onclick='hideDiv("divMl");hide_other_divs("divMl");'><b>🌀&emsp;Forecasting</b></button>
                     <div id="divMl" class="DIV" style="display: none;">
                         <hr>
-                        <h2>!!⚠️ Expérimental ⚠️!!</h2>
-                        <h3>Prévision des précipitations mensuelles dans la commune de Khouribga</h3>
-                        <h3>On suppose qu'on est en fin 2018 (selon les données qu'on a), on a entraine un modèle LSTM -
+                        <h2>!!⚠️ Experimental ⚠️!!</h2>
+                        <h3>Monthly precipitation forecast in the commune of Khouribga</h3>
+                        <h3>We assume that we are in late 2018 (according to the data we have), we have trained a model
+                            LSTM -
                             <a href="https://github.com/ayoubft/wm-22-project/blob/main/precipForeCasting/forecastPrecip-LSTM-1.ipynb"
-                                target="_blank">savoir plus içi</a> - à partir des données à partir de 2000 jusqu'à
-                            2018.
+                                target="_blank">details here</a> -using data from 2000 to 2018.
                         </h3>
-                        <p>On va prévoir les précipitations <b>Janvier 2019</b>; mais normalement on aura la donnée
-                            de chaque mois avant le mois actuelle et on va le prévoir.</p>
-                        <p>Essayer avec n'importe quels 12 mois pour prévoir avec le modèle LSTM entraîné.</p>
+                        <p>We'll forecast precipitation <b>January 2019</b>; but normally we'll have data of each month
+                            of the 12 months before the current month and forecast it.</p>
+                        <p>Try with any 12 months to forecast with the trained LSTM model.</p>
                         <input type="number" id="m1" min="0" max="1000" placeholder="month -12">
                         <input type="number" id="m2" min="0" max="1000" placeholder="month -11">
                         <input type="number" id="m3" min="0" max="1000" placeholder="month -10">
@@ -274,9 +273,9 @@
                         <input type="number" id="m12" min="0" max="1000" placeholder="month -1">
                         <br><br>
 
-                        <button id="btnFillMonths" style="width: 98%;">Remplir par données de 2018</button>
+                        <button id="btnFillMonths" style="width: 98%;">Fill with 2018 data</button>
                         <br><br>
-                        <button id="btnMl" style="width: 98%;">Prévoir le mois prochain</button>
+                        <button id="btnMl" style="width: 98%;">Predict for next month</button>
                         <div class="center">
                             <h1 id="txtpredictionMl"></h1>
                         </div>
@@ -287,7 +286,7 @@
                     <br>
                 </div>
 
-                <div class="box-2 header">🌧️ Précipitations au Maroc</div>
+                <div class="box-2 header">🌧️ Precipitation Dashboard</div>
 
             </div>
 
