@@ -43,49 +43,50 @@
                 <div class="box">
                     <br><br><br>
                     <button class="BTN" id="btnstatp"
-                        onclick='hideDiv("divStations");hide_other_divs("divStations");'><b>🗼&emsp;Stations
-                            météorologiques</b></button>
+                        onclick='hideDiv("divStations");hide_other_divs("divStations");'><b>🗼&emsp;Weather
+                            Stations</b></button>
                     <div id="divStations" class="DIV" style="display: none;" onclick="">
                         <hr>
-                        <p style="font-size: 14px;">Une <b>station météorologique</b>, parfois désignée par synecdoque
-                            <b>abri météorologique</b>, est un ensemble de capteurs qui enregistrent et fournissent des
-                            mesures physiques et des paramètres météorologiques liés aux variations du climat, ces
-                            capteurs étant placés dans un boîtier, abri météorologique qui réalise l'équilibre thermique
-                            du thermomètre avec l'air et le protège du rayonnement solaire[1]. Les variables à mesurer
-                            sont la température, la pression, la vitesse et direction du vent, l'hygrométrie, le point
-                            de rosée, la pluviométrie, la hauteur et le type des nuages, le type et l'intensité des
-                            précipitations ainsi que la visibilité. Les stations peuvent comporter des capteurs pour
-                            toutes ou une partie seulement de ces informations, selon leur type : agro-météorologique,
-                            d’aéroport, météoroutière, climatologique, etc.
+                        <p style="font-size: 14px;">
+                            A <b>weather station</b> is a facility, either on land or sea, with instruments and
+                            equipment for measuring atmospheric conditions to provide information for weather forecasts
+                            and to studythe weather and climate. The measurements taken include temperature, atmospheric
+                            pressure,humidity, wind speed, wind direction, and precipitation amounts. Wind measurements
+                            are takenwith as few other obstructions as possible, while temperature and humidity
+                            measurements arekept free from direct solar radiation, or insolation. Manual observations
+                            are taken at least once daily, while automated measurements are taken at least once an hour.
+                            Weather conditions out at sea are taken by ships and buoys, which measure slightly different
+                            meteorological quantities such as sea surface temperature (SST), wave height, and wave
+                            period. Drifting weather buoys outnumber their moored versions by a significant amount.
                         </p>
-                        <button id="btnstatpluv" onclick="show_statpluv();" style="width: 98%;">AFFICHER LES STATIONS
-                            PLUVIÉOMÉTRIQUE</button>
-                        <h3>🛈 Cliquer sur chaque station pour plus d'informations.</h3>
+                        <button id="btnstatpluv" onclick="show_statpluv();" style="width: 98%;">Show weather
+                            stations</button>
+                        <h3>🛈 Click a station for more informations.</h3>
                     </div>
                     <br>
 
                     <button class="BTN" id="btncom"
-                        onclick='hideDiv("divcom");hide_other_divs("divcom");'><b>🌧️&emsp;Précipitation par
+                        onclick='hideDiv("divcom");hide_other_divs("divcom");'><b>🌧️&emsp;Precipitation per
                             commune</b></button>
                     <div id="divcom" class="DIV" style="display: none;">
                         <hr>
-                        <p>La précipitation moyenne mensuelle par commune.</p>
-                        <h4>Choix du mois de 2018: </h4>
+                        <p>Average monthly precipitation per commune.</p>
+                        <h4>Select a month: </h4>
                         <div class="custom-select">
                             <select id="slctmonth_com">
-                                <option value="____">Choisir un mois:</option>
-                                <option value="prec-1-18">Janvier 2018</option>
-                                <option value="prec-2-18">Février 2018</option>
-                                <option value="prec-3-18">Mars 2018</option>
-                                <option value="prec-4-18">Avril 2018</option>
-                                <option value="prec-5-18">Mai 2018</option>
-                                <option value="prec-6-18">Juin 2018</option>
-                                <option value="prec-7-18">Juillet 2018</option>
-                                <option value="prec-8-18">Août 2018</option>
-                                <option value="prec-9-18">Séptembre 2018</option>
-                                <option value="prec-10-18">Octobre 2018</option>
-                                <option value="prec-11-18">Novembre 2018</option>
-                                <option value="prec-12-18">Décembre 2018</option>
+                                <option value="____">Select a month: </option>
+                                <option value="prec-1-18">January 2018</option>
+                                <option value="prec-2-18">February 2018</option>
+                                <option value="prec-3-18">March 2018</option>
+                                <option value="prec-4-18">April 2018</option>
+                                <option value="prec-5-18">May 2018</option>
+                                <option value="prec-6-18">June 2018</option>
+                                <option value="prec-7-18">July 2018</option>
+                                <option value="prec-8-18">August 2018</option>
+                                <option value="prec-9-18">September 2018</option>
+                                <option value="prec-10-18">October 2018</option>
+                                <option value="prec-11-18">November 2018</option>
+                                <option value="prec-12-18">December 2018</option>
                             </select>
                         </div>
                     </div>
@@ -107,9 +108,9 @@
                         onclick='hideDiv("divRaster");hide_other_divs("divRaster");'><b>🏁&emsp;Rasters</b></button>
                     <div id="divRaster" class="DIV" style="display: none;">
                         <hr>
-                        Afficher le rendu des rasters de précipitations au Maroc.<br>
-                        ATTENTION! Ca va prendre du temps!<br>
-                        <h4>Choix de la palette: </h4>
+                        Render a raster of precipitation.<br>
+                        Caution! It takes time!<br>
+                        <h4>Select a range: </h4>
                         <div class="custom-select-pal">
                             <select id="slctpal" style="width: 98%;">
                                 <option value="Blues">Blues</option>
@@ -118,22 +119,22 @@
                                 <option value="Spectral">Spectral</option>
                             </select>
                         </div>
-                        <h4>Choix du mois de 2018: </h4>
+                        <h4>Select a month: </h4>
                         <div class="custom-select-ras">
                             <select id="slctmonth_ras" style="width: 98%;">
                                 <option value="____">Choisir un mois:</option>
-                                <option value="2018_01.tif">Janvier 2018</option>
-                                <option value="2018_02.tif">Février 2018</option>
-                                <option value="2018_03.tif">Mars 2018</option>
-                                <option value="2018_04.tif">Avril 2018</option>
-                                <option value="2018_05.tif">Mai 2018</option>
-                                <option value="2018_06.tif">Juin 2018</option>
-                                <option value="2018_07.tif">Juillet 2018</option>
-                                <option value="2018_08.tif">Août 2018</option>
-                                <option value="2018_09.tif">Séptembre 2018</option>
-                                <option value="2018_10.tif">Octobre 2018</option>
-                                <option value="2018_11.tif">Novembre 2018</option>
-                                <option value="2018_12.tif">Décembre 2018</option>
+                                <option value="2018_01.tif">January 2018</option>
+                                <option value="2018_02.tif">February 2018</option>
+                                <option value="2018_03.tif">March 2018</option>
+                                <option value="2018_04.tif">April 2018</option>
+                                <option value="2018_05.tif">May 2018</option>
+                                <option value="2018_06.tif">June 2018</option>
+                                <option value="2018_07.tif">July 2018</option>
+                                <option value="2018_08.tif">August 2018</option>
+                                <option value="2018_09.tif">September 2018</option>
+                                <option value="2018_10.tif">October 2018</option>
+                                <option value="2018_11.tif">November 2018</option>
+                                <option value="2018_12.tif">December 2018</option>
                             </select>
                         </div>
                         <br>
@@ -143,11 +144,11 @@
 
 
                     <button class="BTN" id="btnreqNor"
-                        onclick='hideDiv("divreq");hide_other_divs("divreq");'><b>🔎&emsp;Requêtes SQL</b></button>
+                        onclick='hideDiv("divreq");hide_other_divs("divreq");'><b>🔎&emsp;SQL Queries</b></button>
                     <div id="divreq" class="DIV" style="display: none;">
                         <hr>
-                        <h2>Entrer vos requêtes sql pour affichage attributaire en table ⬛</h2>
-                        <h3>Description des tables disponibles:</h3>
+                        <h2>Enter your sql queries for attribute display in a table ⬛</h2>
+                        <h3>Description of available data:</h3>
                         <table class="tg" style="table-layout: fixed; width: 286px">
                             <colgroup>
                                 <col style="width: 95.75px">
