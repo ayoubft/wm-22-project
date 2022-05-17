@@ -269,7 +269,7 @@ function showras(tiff_) {
           mouseMoveCursor: null,
         })
         .addTo(map);
-      map.fitBounds(layer1.getBounds());
+      // map.fitBounds(layer1.getBounds());
     });
 }
 
