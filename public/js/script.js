@@ -215,7 +215,7 @@ function show_statpluv() {
       layer.bindPopup(
         "<h2><u>" +
           feature.properties.Nom +
-          "</h2> </u></font><h3>Bassin : " +
+          "</h2> </u></font><h3>Basin : " +
           feature.properties.Bassin +
           "</h3><p>Type : " +
           feature.properties.Type +
