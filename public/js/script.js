@@ -200,13 +200,13 @@ info.onAdd = function (map) {
 // method that we will use to update the control based on feature properties passed
 info.update = function (props) {
   this._div.innerHTML =
-    "<br><h3>🌧️ Précipitation mensuelle</h3>" +
+    "<br><h3>🌧️ Monthly precipitations</h3>" +
     (props
-      ? `Commune : <b>${props.NAME}</b><br /> Précipitations: ${Math.round(
+      ? `Commune : <b>${props.NAME}</b><br /> Precipitations: ${Math.round(
           props[value],
           2
         )} mm </sup>`
-      : "Survoler une commune!");
+      : "Hover over a commune!");
 };
 
 function show_statpluv() {
